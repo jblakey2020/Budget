@@ -29,7 +29,12 @@ var budgetController = (function(){
     return {
         addItem: function(type, des, val){
             var newItem, ID;
-            ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+            if (data.allItems[type].length > 0) {
+                //take the last id and add 1
+                ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+             } else {
+                ID = 0;
+             }
 
             if(type === 'exp'){
 
